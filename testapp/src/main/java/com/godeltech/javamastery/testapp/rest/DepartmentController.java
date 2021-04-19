@@ -41,6 +41,7 @@ public class DepartmentController {
 		try {
 			departmentService.create(departmentDto);
 		} catch (Exception e) {
+			LOGGER.error("Failed to create department", e);
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
 		}
 	}
@@ -50,6 +51,7 @@ public class DepartmentController {
 		try {
 			departmentService.delete(id);
 		} catch (Exception e) {
+			LOGGER.error("Failed to delete delartment", e);
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
 		}
 	}
@@ -59,6 +61,7 @@ public class DepartmentController {
 		try {
 			departmentService.update(departmentDto);
 		} catch (Exception e) {
+			LOGGER.error("Failed to update employee", e);
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
 		}
 	}
