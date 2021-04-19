@@ -19,10 +19,10 @@ public class SpringJdbcConfig {
 	@Bean
 	public DataSource mysqlDataSource(@Value("${spring.datasource.driver-class-name}") String className,
 			@Value("${spring.datasource.url}") String url, @Value("${spring.datasource.username}") String username,
-			@Value("${spring.datasource.password}") String password, @Value("${db.name}") String dbName) {
+			@Value("${spring.datasource.password}") String password) {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName(className);
-		dataSource.setUrl(url + dbName);
+		dataSource.setUrl(url);
 		dataSource.setUsername(username);
 		dataSource.setPassword(password);
 		return dataSource;

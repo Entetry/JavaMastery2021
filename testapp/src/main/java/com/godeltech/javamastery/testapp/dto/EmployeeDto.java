@@ -3,7 +3,10 @@ package com.godeltech.javamastery.testapp.dto;
 import java.sql.Date;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -19,6 +22,7 @@ public class EmployeeDto {
 	@Size(min = 2, max = 254, message = "Lastname be between 2 and 254 characters")
 	private String lastName;
 	@JsonProperty
+	@NotNull(message = "Department in mandatory")
 	private DepartmentDto department;
 	@JsonProperty
 	@NotBlank(message = "Firstname is mandatory")
@@ -29,6 +33,8 @@ public class EmployeeDto {
 	@Size(min = 2, max = 200, message = "Gender be between 2 and 200 characters")
 	private String gender;
 	@JsonProperty
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@NotNull(message = "Please provide a date.")
 	private Date dateOfBirth;
 
 	public Long getId() {
