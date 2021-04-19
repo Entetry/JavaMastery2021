@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.godeltech.javamastery.testapp.dto.EmployeeDto;
-import com.godeltech.javamastery.testapp.dto.EmployeeRequestDto;
 import com.godeltech.javamastery.testapp.entity.Employee;
 
 @Component
@@ -39,16 +38,5 @@ public class EmployeeDtoMapper {
 		employeeDto.setDateOfBirth(employee.getDateOfBirth());
 		employeeDto.setDepartment(departmentDtoMapper.toDepartmentDto(employee.getDepartment()));
 		return employeeDto;
-	}
-
-	public Employee toEmployee(EmployeeRequestDto employeeRequestDto) {
-		Employee employee = new Employee();
-		employee.setId(employeeRequestDto.getId());
-		employee.setFirstName(employeeRequestDto.getFirstname());
-		employee.setLastname(employeeRequestDto.getLastname());
-		employee.setJobTitle(employeeRequestDto.getJobTitle());
-		employee.setGender(employeeRequestDto.getGender());
-		employee.setDateOfBirth(employeeRequestDto.getDate_of_birth());
-		return employee;
 	}
 }

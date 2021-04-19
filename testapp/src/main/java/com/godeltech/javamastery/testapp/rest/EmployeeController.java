@@ -38,6 +38,7 @@ public class EmployeeController {
 		try {
 			employeeService.create(employeeDto);
 		} catch (Exception e) {
+			LOGGER.error("Failed to create employee", e);
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
 		}
 	}
@@ -47,6 +48,7 @@ public class EmployeeController {
 		try {
 			return employeeService.getById(id);
 		} catch (Exception e) {
+			LOGGER.error("Failed to get employee", e);
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
 		}
 	}
@@ -56,6 +58,7 @@ public class EmployeeController {
 		try {
 			employeeService.delete(id);
 		} catch (Exception e) {
+			LOGGER.error("Failed to delete employee", e);
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
 		}
 	}
@@ -65,6 +68,7 @@ public class EmployeeController {
 		try {
 			employeeService.update(employeeDto);
 		} catch (Exception e) {
+			LOGGER.error("Failed to update employee", e);
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
 		}
 	}
