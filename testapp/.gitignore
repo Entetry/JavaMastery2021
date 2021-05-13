@@ -7,6 +7,8 @@ tmp/
 *.swp
 *~.nib
 local.properties
+/testapp/src/main/resources/application.properties
+application.properties
 .settings/
 .loadpath
 .recommenders
